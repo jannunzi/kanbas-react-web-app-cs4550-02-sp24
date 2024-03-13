@@ -7,7 +7,7 @@ import Nav from "../Nav";
 
 function Labs() {
   return (
-    <>
+    <div className="container-fluid">
       <Nav />
       <h1>Labs</h1>
       <Link to="/Labs/a3">Assignment 3</Link> |{" "}
@@ -19,7 +19,7 @@ function Labs() {
         <Route path="/a4" element={<Assignment4 />} />
         <Route path="/a5" element={<Assignment5 />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

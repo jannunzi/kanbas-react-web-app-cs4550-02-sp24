@@ -1,9 +1,21 @@
 import { Route, Routes, useParams } from "react-router";
-import courses from "../Database/courses.json";
+// import courses from "../Database/courses.json";
+import { useState, useEffect } from "react";
+import * as courseClient from "./client";
 
 function Courses() {
+  // http://localhost:4000/api/courses/RS101
   const { courseId } = useParams();
-  const course = courses.find((c) => c._id === courseId);
+  const [course, setCourse] = useState({ name: "" }); // courses.find((c) => c._id === courseId);
+  const fetchCourse = async () => {
+    const course = await courseClient.fetchCourseById(courseId);
+    setCourse(course);
+  };
+
+  useEffect(() => {
+    fetchCourse();
+  }, [courseId]);
+
   return (
     <div>
       <h1>Courses / {course?.name}</h1>

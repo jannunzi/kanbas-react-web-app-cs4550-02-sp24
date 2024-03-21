@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-function Counter() {
+function Counter({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: (count: number) => void;
+}) {
   //   let count = 7;
-  const [count, setCount] = useState(7);
   console.log(count);
   return (
     <div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-function ArrayStateVariable() {
+import LeafComponent from "./LeafComponent";
+function ArrayStateVariable({ count }: { count: number }) {
   const [array, setArray] = useState([1, 2, 3, 4, 5]);
   const addElement = () => {
     setArray([...array, Math.floor(Math.random() * 100)]);
@@ -10,6 +11,7 @@ function ArrayStateVariable() {
   return (
     <div>
       <h2>Array State Variable</h2>
+      <LeafComponent count={count} />
       <button onClick={addElement}>Add Element</button>
       <ul>
         {array.map((item, index) => (
